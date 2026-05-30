@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untukmu Sebelum Kamu Pergi</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+overflow-x:hidden;
+}
+
+header{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero{
+max-width:700px;
+}
+
+.hero h1{
+font-size:3rem;
+margin-bottom:20px;
+animation:fade 2s;
+}
+
+.hero p{
+font-size:1.2rem;
+line-height:1.8;
+animation:fade 3s;
+}
+
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:12px 25px;
+background:#ff4d6d;
+color:white;
+text-decoration:none;
+border-radius:30px;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+}
+
+section{
+padding:80px 20px;
+max-width:900px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+margin-bottom:30px;
+color:#ff7b9c;
+}
+
+.surat{
+background:rgba(255,255,255,0.08);
+padding:30px;
+border-radius:20px;
+line-height:2;
+backdrop-filter:blur(10px);
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+padding:40px;
+border-radius:15px;
+text-align:center;
+}
+
+.countdown{
+font-size:2rem;
+text-align:center;
+margin-top:20px;
+}
+
+.secret{
+display:none;
+margin-top:20px;
+padding:20px;
+background:rgba(255,255,255,0.1);
+border-radius:15px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+font-size:1.1rem;
+}
+
+.heart{
+position:fixed;
+top:-20px;
+color:#ff4d6d;
+font-size:20px;
+animation:fall linear forwards;
+pointer-events:none;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="hero">
+<h1>Untukmu Sebelum Kamu Pergi</h1>
+<p id="typing"></p>
+<a href="#surat" class="btn">Baca Suratku</a>
+</div>
+</header>
+
+<section id="surat">
+<h2>Surat Untukmu</h2>
+
+<div class="surat">
+<p>
+Sebentar lagi kamu akan pergi ke pondok.<br><br>
+
+Mungkin setelah ini kita tidak akan sesering dulu berbicara,
+tidak bisa saling mengabari kapan saja, dan tidak bisa berbagi cerita setiap waktu.<br><br>
+
+Tapi aku ingin kamu tahu satu hal.<br><br>
+
+Terima kasih karena pernah hadir dalam hidupku.<br><br>
+
+Terima kasih atas semua cerita, tawa, perhatian, dan kenangan yang pernah kita lalui bersama.<br><br>
+
+Aku bangga padamu karena berani melangkah menuju masa depan yang lebih baik.<br><br>
+
+Walaupun ada rasa sedih karena harus berpisah, aku tidak ingin kesedihan itu menghalangi langkahmu.<br><br>
+
+Belajarlah dengan baik.<br>
+Jaga kesehatanmu.<br>
+Jaga dirimu baik-baik.<br><br>
+
+Jika suatu hari kamu merasa lelah, ingatlah bahwa ada seseorang yang selalu mendoakanmu dari jauh.<br><br>
+
+Aku mungkin tidak selalu ada di sampingmu, tetapi aku akan selalu berharap yang terbaik untukmu.<br><br>
+
+Dan jika suatu saat kamu mengingatku, semoga yang kamu ingat adalah hal-hal baik yang pernah kita lalui bersama.<br><br>
+
+Jangan lupakan aku.
+</p>
+</div>
+</section>
+
+<section>
+<h2>Hitung Mundur</h2>
+<div class="countdown" id="countdown"></div>
+</section>
+
+<section>
+<h2>Kenangan Kita</h2>
+
+<div class="gallery">
+<div class="card">Awal Kita Kenal</div>
+<div class="card">Cerita yang Tak Terlupakan</div>
+<div class="card">Tawa yang Pernah Ada</div>
+<div class="card">Momen Terbaik Bersamamu</div>
+</div>
+
+</section>
+
+<section>
+<h2>Pesan Rahasia</h2>
+
+<center>
+<button class="btn" onclick="showSecret()">Klik Di Sini</button>
+
+<div class="secret" id="secret">
+Aku tidak tahu apa yang akan terjadi nanti.
+Tapi aku berharap suatu hari nanti kita bisa bertemu lagi,
+menceritakan semua hal yang telah kita lalui,
+dan tersenyum karena pernah menjadi bagian dari cerita satu sama lain. ❤️
+</div>
+</center>
+
+</section>
+
+<footer>
+"Bukan selamat tinggal, hanya sampai jumpa."
+<br><br>
+❤️
+</footer>
+
+<script>
+
+const text =
+"Sebentar lagi kamu akan pergi ke pondok. Mungkin jarak akan memisahkan kita, tetapi kenangan dan doa akan selalu menemanimu.";
+
+let i = 0;
+
+function typing(){
+if(i < text.length){
+document.getElementById("typing").innerHTML += text.charAt(i);
+i++;
+setTimeout(typing,50);
+}
+}
+
+typing();
+
+function showSecret(){
+document.getElementById("secret").style.display="block";
+}
+
+const targetDate = new Date("2026-05-30").getTime();
+
+setInterval(()=>{
+const now = new Date().getTime();
+const distance = targetDate - now;
+
+const days = Math.floor(distance/(1000*60*60*24));
+
+document.getElementById("countdown").innerHTML =
+days + " Hari Lagi";
+},1);
+
+function createHeart(){
+const heart = document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=
+Math.random()*3+3+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
